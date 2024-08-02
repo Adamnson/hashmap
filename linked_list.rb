@@ -148,27 +148,27 @@ class LinkedList
   end
 end # class LinkedList
 
-li = LinkedList.new
+# li = LinkedList.new
+# # puts "the size is #{li.size}, the head is #{li.head.value}, the tail is #{li.tail.value}"
+# # puts "the head node is #{li.head}, the tail node is #{li.tail}"
+# puts li
+
+# puts 'ADDING ELEMENTS IN PROGRESS'
+# li.append(4)
 # puts "the size is #{li.size}, the head is #{li.head.value}, the tail is #{li.tail.value}"
 # puts "the head node is #{li.head}, the tail node is #{li.tail}"
-puts li
+# puts li
+# li.prepend(2)
+# li.append(7)
+# li.prepend(0)
 
-puts 'ADDING ELEMENTS IN PROGRESS'
-li.append(4)
-puts "the size is #{li.size}, the head is #{li.head.value}, the tail is #{li.tail.value}"
-puts "the head node is #{li.head}, the tail node is #{li.tail}"
-puts li
-li.prepend(2)
-li.append(7)
-li.prepend(0)
+# puts "the size is #{li.size}, the head is #{li.head.value}, the tail is #{li.tail.value}"
+# puts "the head node is #{li.head}, the tail node is #{li.tail}"
+# puts li
 
-puts "the size is #{li.size}, the head is #{li.head.value}, the tail is #{li.tail.value}"
-puts "the head node is #{li.head}, the tail node is #{li.tail}"
-puts li
-
-li.size.times do |i|
-  puts "value at #{i} is #{li.at(i).value}"
-end
+# li.size.times do |i|
+#   puts "value at #{i} is #{li.at(i).value}"
+# end
 
 # puts "contians?(7) #{li.contains?(7)} find(7) #{li.find(7)}"
 # puts "contains?(8) #{li.contains?(8)} find(8) #{li.find(8)}"
@@ -178,13 +178,13 @@ end
 # puts "#{li} size: #{li.size}"
 # puts "contians?(7) #{li.contains?(7)}"
 
-li.insert_at(7, 23)
-li.insert_at(2, 40)
-li.insert_at(3, 20)
-li.insert_at(3, 10)
+# li.insert_at(7, 23)
+# li.insert_at(2, 40)
+# li.insert_at(3, 20)
+# li.insert_at(3, 10)
 
-puts "#{li} size: #{li.size}"
-puts "contians?(23) #{li.contains?(23)} #{li.find(23)}"
+# puts "#{li} size: #{li.size}"
+# puts "contians?(23) #{li.contains?(23)} #{li.find(23)}"
 
 # 3.times do
 #   li.remove_at(6)
@@ -209,4 +209,3 @@ puts "contians?(23) #{li.contains?(23)} #{li.find(23)}"
 # list.append('turtle')
 
 # puts list
-# reaise IndexError if index.negative? || index >= @buckets.length
