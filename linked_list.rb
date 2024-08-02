@@ -111,16 +111,6 @@ class LinkedList
     end
   end
 
-  # def elongate_tail(additional)
-  #   additional.times do
-  #     node = Node.new
-  #     node.value = nil
-  #     @tail.next = node
-  #     @tail = node
-  #     @size += 1
-  #   end
-  # end
-
   def remove_at(index)
     return nil if index >= @size || index.negative?
     return remove_head if index.zero?
@@ -135,7 +125,6 @@ class LinkedList
     nil
   end
 
-  # binding.pry
   def remove_head
     node = @head
 
