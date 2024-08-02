@@ -1,3 +1,5 @@
+require 'pry-byebug'
+
 class Node
   attr_accessor :next, :value
 
@@ -11,14 +13,13 @@ class LinkedList
   attr_accessor :head, :tail, :size
 
   def initialize
-    @head = nil
-    @tail = nil
+    @head = @tail = nil
     @size = 0
   end
 
   def prepend(value)
     new_head = Node.new
-    if @size.eql?(0)
+    if @size.zero?
       @head = new_head
       @head.value = value
       @tail = new_head
@@ -30,8 +31,8 @@ class LinkedList
     @size += 1
   end
 
-  def append(value)
-    return prepend(value) unless size > 0
+  def append(value = nil)
+    return prepend(value) unless size.positive?
 
     new_tail = Node.new
     new_tail.value = value
@@ -97,40 +98,55 @@ class LinkedList
     return append(value) if index.eql?(size)
     return nil if index.negative?
 
-    node = @head
-
     if index > @size
-      (index - @size).times do
-        node = Node.new
-        node.value = nil
-        @tail.next = node
-        @tail = node
-        @size += 1
-      end
+      (index - @size).times { append }
     else
-      (index - 1).times do
-        node = node.next
-      end
+      node = at(index - 1)
+      new_node = Node.new
+      new_node.value = value
+      new_node.next = node.next
+      node.next = new_node
+      @size += 1
+      nil
     end
-
-    new_node = Node.new
-    new_node.value = value
-    new_node.next = node.next
-    node.next = new_node
-    @size += 1
-    nil
   end
+
+  # def elongate_tail(additional)
+  #   additional.times do
+  #     node = Node.new
+  #     node.value = nil
+  #     @tail.next = node
+  #     @tail = node
+  #     @size += 1
+  #   end
+  # end
 
   def remove_at(index)
     return nil if index >= @size || index.negative?
+    return remove_head if index.zero?
     return pop if index.eql?(@size - 1)
 
     node = @head
-    (index - 1).times do
-      node = node.next
-    end
+    (index - 1).times { node.next }
+
     removed_node = node.next
     node.next = removed_node.next
+    @size -= 1
+    nil
+  end
+
+  # binding.pry
+  def remove_head
+    node = @head
+
+    if @head.eql?(@tail)
+      @head = nil
+      @tail = nil
+      @size = 0
+      return
+    end
+
+    @head = node.next
     @size -= 1
     nil
   end
@@ -145,19 +161,27 @@ class LinkedList
   end
 end # class LinkedList
 
-# li = LinkedList.new
-# li.append(4)
-# li.prepend(2)
-# li.append(7)
-# li.prepend(0)
-
+li = LinkedList.new
 # puts "the size is #{li.size}, the head is #{li.head.value}, the tail is #{li.tail.value}"
 # puts "the head node is #{li.head}, the tail node is #{li.tail}"
-# puts li
+puts li
 
-# li.size.times do |i|
-#   puts "value at #{i} is #{li.at(i).value}"
-# end
+puts 'ADDING ELEMENTS IN PROGRESS'
+li.append(4)
+puts "the size is #{li.size}, the head is #{li.head.value}, the tail is #{li.tail.value}"
+puts "the head node is #{li.head}, the tail node is #{li.tail}"
+puts li
+li.prepend(2)
+li.append(7)
+li.prepend(0)
+
+puts "the size is #{li.size}, the head is #{li.head.value}, the tail is #{li.tail.value}"
+puts "the head node is #{li.head}, the tail node is #{li.tail}"
+puts li
+
+li.size.times do |i|
+  puts "value at #{i} is #{li.at(i).value}"
+end
 
 # puts "contians?(7) #{li.contains?(7)} find(7) #{li.find(7)}"
 # puts "contains?(8) #{li.contains?(8)} find(8) #{li.find(8)}"
@@ -167,13 +191,13 @@ end # class LinkedList
 # puts "#{li} size: #{li.size}"
 # puts "contians?(7) #{li.contains?(7)}"
 
-# li.insert_at(7, 23)
-# li.insert_at(2, 40)
-# li.insert_at(3, 20)
-# li.insert_at(3, 10)
+li.insert_at(7, 23)
+li.insert_at(2, 40)
+li.insert_at(3, 20)
+li.insert_at(3, 10)
 
-# puts "#{li} size: #{li.size}"
-# puts "contians?(23) #{li.contains?(23)} #{li.find(23)}"
+puts "#{li} size: #{li.size}"
+puts "contians?(23) #{li.contains?(23)} #{li.find(23)}"
 
 # 3.times do
 #   li.remove_at(6)

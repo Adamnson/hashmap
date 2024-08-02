@@ -185,38 +185,39 @@ puts "keys are #{hg.keys}"
 puts "values are #{hg.values}"
 puts " current capacity #{hg.capacity} #{hg.show_list}"
 
-hg.set('emperor', 'Ashoka')
-hg.set('chhatrapati', 'Shivaji')
-hg.set('Mercedes', 'Benz')
-hg.set('Albert', 'Einstein')
-hg.set('a.roy', 'god of small things')
-hg.set('moby dick', 'whale')
-hg.set('money', 'always')
-hg.set('grdatne', 'incarnate')
+# hg.set('emperor', 'Ashoka')
+# hg.set('chhatrapati', 'Shivaji')
+# hg.set('Mercedes', 'Benz')
+# hg.set('Albert', 'Einstein')
+# hg.set('a.roy', 'god of small things')
+# hg.set('moby dick', 'whale')
+# hg.set('money', 'always')
+# hg.set('grdatne', 'incarnate')
 
-puts "keys are #{hg.keys}"
-puts "values are #{hg.values}"
-puts " current capacity #{hg.capacity} #{hg.show_list}"
+# puts "keys are #{hg.keys}"
+# puts "values are #{hg.values}"
+# puts " current capacity #{hg.capacity} #{hg.show_list}"
 
-hg.set('apple', 'red')
-hg.set('banana', 'yellow')
-hg.set('carrot', 'orange')
-hg.set('dog', 'brown')
-hg.set('elephant', 'gray')
-hg.set('frog', 'green')
-hg.set('grape', 'purple')
-hg.set('hat', 'black')
-hg.set('ice cream', 'white')
-hg.set('jacket', 'blue')
-hg.set('kioe', 'pink')
-hg.set('lion', 'golden')
-hg.set('moon', 'silver')
-hg.set('love', 'motorcycle')
-hg.set('amway', 'financial freedom')
-puts "keys are #{hg.keys}"
-puts "values are #{hg.values}"
-puts " current capacity #{hg.capacity} #{hg.show_list}"
+# hg.set('apple', 'red')
+# hg.set('banana', 'yellow')
+# hg.set('carrot', 'orange')
+# hg.set('dog', 'brown')
+# hg.set('elephant', 'gray')
+# hg.set('frog', 'green')
+# hg.set('grape', 'purple')
+# hg.set('hat', 'black')
+# hg.set('ice cream', 'white')
+# hg.set('jacket', 'blue')
+# hg.set('kioe', 'pink')
+# hg.set('lion', 'golden')
+# hg.set('moon', 'silver')
+# hg.set('love', 'motorcycle')
+# hg.set('amway', 'financial freedom')
+# puts "keys are #{hg.keys}"
+# puts "values are #{hg.values}"
+# puts " current capacity #{hg.capacity} #{hg.show_list}"
 
 hg.clear
-puts hg.keys
+puts "keys are #{hg.keys}"
+puts "values are #{hg.values}"
 puts hg.show_list
