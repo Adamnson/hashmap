@@ -1,12 +1,33 @@
+# class Node implements node class as a data unit for linked lists
+# class variables:
+#  @next
+#  @value
 class Node
   attr_accessor :next, :value
 
-  def initialize
-    @next = nil
-    @value = nil
+  def initialize(value = nil, next_node = nil)
+    @next = next_node
+    @value = value
   end
-end # class Node
+end
 
+# class LinkedList implements the linked list data structure
+# based on the Node class as individual elements
+# class variables:
+#  @head
+#  @tail
+#  @size
+# class methods:
+#  prepend
+#  append
+#  at
+#  pop
+#  contains
+#  find
+#  insert_at
+#  remove_at
+#  remove_head
+#  to_s
 class LinkedList
   attr_accessor :head, :tail, :size
 
@@ -16,13 +37,11 @@ class LinkedList
   end
 
   def prepend(value)
-    new_head = Node.new
+    new_head = Node.new(value)
     if @size.zero?
       @head = new_head
-      @head.value = value
       @tail = new_head
     else
-      new_head.value = value
       new_head.next = @head
       @head = new_head
     end
@@ -32,9 +51,7 @@ class LinkedList
   def append(value = nil)
     return prepend(value) unless size.positive?
 
-    new_tail = Node.new
-    new_tail.value = value
-    new_tail.next = nil
+    new_tail = Node.new(value)
     @tail.next = new_tail
     @tail = new_tail
     @size += 1
@@ -53,7 +70,7 @@ class LinkedList
   end
 
   def pop
-    return nil if size.eql?(0)
+    return nil if size.zero?
 
     old_tail = @tail
     if size.eql?(1)
@@ -100,8 +117,7 @@ class LinkedList
       (index - @size).times { append }
     else
       node = at(index - 1)
-      new_node = Node.new
-      new_node.value = value
+      new_node = Node.new(value)
       new_node.next = node.next
       node.next = new_node
       @size += 1
@@ -146,7 +162,7 @@ class LinkedList
     end
     puts 'nil'
   end
-end # class LinkedList
+end
 
 # li = LinkedList.new
 # # puts "the size is #{li.size}, the head is #{li.head.value}, the tail is #{li.tail.value}"

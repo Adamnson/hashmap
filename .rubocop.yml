@@ -11,3 +11,15 @@
 
 AllCops:
   NewCops: enable
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/ClassLength:
+  Max: 150
+
+Metrics/AbcSize:
+  CountRepeatedAttributes: false
