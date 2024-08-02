@@ -1,5 +1,5 @@
-require './linked_list.rb'
-require './primes.rb'
+require './linked_list'
+require './primes'
 
 class HashMap
   attr_reader :length, :capacity
@@ -8,7 +8,7 @@ class HashMap
   @length = 0
 
   def initialize(size = 11)
-    size = is_prime?(size) ? size : prime_greater_than(size)
+    size = prime_greater_than(size) unless prime?(size)
     @buckets = Array.new(size)
     @capacity = @length = @prime = size
 
@@ -32,9 +32,9 @@ class HashMap
     hash_code = 0
 
     if key.is_a? String
-      key.each_char { |char| hash_code = @prime * hash_code + char.ord }
+      key.each_char { |char| hash_code = (@prime * hash_code) + char.ord }
     elsif key.is_a? Integer
-      key.to_s.each_char { |char| hash_code = @prime * hash_code + char.ord }
+      key.to_s.each_char { |char| hash_code = (@prime * hash_code) + char.ord }
     end
 
     hash_code
